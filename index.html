@@ -318,7 +318,7 @@
     <div class="config-modal" id="configModal">
         <div class="config-content">
             <h2>API Configuration</h2>
-            <input type="text" id="apiUrl" placeholder="Backend API URL (e.g., http://localhost:5000)" value="http://localhost:5000">
+            <input type="text" id="apiUrl" placeholder="Backend API URL (e.g., 'https://pepper-rag-backend-production.up.railway.app')" value="'https://pepper-rag-backend-production.up.railway.app'">
             <div class="config-buttons">
                 <button class="cancel-btn" onclick="closeConfig()">Cancel</button>
                 <button class="save-btn" onclick="saveConfig()">Save</button>
@@ -347,7 +347,7 @@
     </div>
 
     <script>
-        let API_URL = localStorage.getItem('apiUrl') || 'http://localhost:5000';
+        let API_URL = localStorage.getItem('apiUrl') || 'https://pepper-rag-backend-production.up.railway.app';
         let currentLoadingSteps = null;
 
         function openConfig() {

@@ -459,8 +459,8 @@
             const textEl = statusEl.querySelector('span:last-child');
 
             try {
-                console.log('Checking health at:', `${API_URL}/health`);
-                const response = await fetch(`${API_URL}/health`, {
+                console.log('Checking health at:', `https://pepper-rag-backend-production.up.railway.app/health`);
+                const response = await fetch(`https://pepper-rag-backend-production.up.railway.app/health`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -631,8 +631,8 @@
             currentLoadingSteps = createLoadingSteps();
             
             try {
-                console.log('Sending request to:', `${API_URL}/api/chat`);
-                const response = await fetch(`${API_URL}/api/chat`, {
+                console.log('Sending request to:', `https://pepper-rag-backend-production.up.railway.app/api/chat`);
+                const response = await fetch(`https://pepper-rag-backend-production.up.railway.app/api/chat`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

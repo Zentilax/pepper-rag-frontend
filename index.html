@@ -611,8 +611,9 @@
             const textEl = statusEl.querySelector('span:last-child');
 
             try {
-                console.log('Checking health at:', `${API_URL}/health`);
-                const response = await fetch(`${API_URL}/health`, {
+                const healthUrl = `${API_URL}/health`;
+                console.log('Checking health at:', healthUrl);
+                const response = await fetch(healthUrl, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -777,14 +778,21 @@
             searchBtn.disabled = true;
             
             try {
-                console.log('Sending request to:', `${API_URL}/api/chat`);
-                const response = await fetch(`${API_URL}/api/chat`, {
+                const chatUrl = `${API_URL}/api/chat`;
+                console.log('Sending POST request to:', chatUrl);
+                console.log('Request body:', JSON.stringify({ question }));
+                
+                const response = await fetch(chatUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'text/event-stream'
                     },
                     body: JSON.stringify({ question })
                 });
+
+                console.log('Response status:', response.status, response.statusText);
+                console.log('Response headers:', [...response.headers.entries()]);
 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
